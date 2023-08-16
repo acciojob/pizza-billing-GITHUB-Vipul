@@ -14,11 +14,11 @@ public class Pizza {
         // your code goes here
         if(isVeg) {
             price = 300;
-            bill="Pizza Base Price : 300\n";
+            bill="Pizza Base Price: 300\n";
         }
         else {
             price = 400;
-            bill="Pizza Base Price : 400\n";
+            bill="Pizza Base Price: 400\n";
         }
 
         addExtraCheese = false;
@@ -37,6 +37,7 @@ public class Pizza {
                 bill+="Extra Cheese Added: 80\n";
                 addExtraCheese=true;
             }
+
 
         }
 
@@ -70,6 +71,6 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        return bill+"Total Price: "+ price +"\n";
+        return this.bill + "Total Price: "+ price +"\n";
     }
 }
