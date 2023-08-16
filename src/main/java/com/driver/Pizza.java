@@ -44,30 +44,29 @@ public class Pizza {
     public void addExtraCheese(){
         // your code goes here
             if(!addExtraCheese) {
+                this.price += 80;
                 this.setBill("Extra Cheese Added: 80\n");
                 addExtraCheese=true;
             }
-            this.price += 80;
+
         }
 
 
 
     public void addExtraToppings(){
         // your code goes here
-        if(isVeg) {
-            if(!addExtraToppings) {
+        if(!addExtraToppings) {
+            if(isVeg) {
                 this.setBill("Extra Topping Added: 70\n");
-                addExtraCheese=true;
+                this.price += 70;
             }
-            this.price += 70;
 
-        }
-        else  {
-            if(!addExtraToppings) {
+           else {
+
                 this.setBill("Extra Topping Added: 120\n");
-                addExtraCheese=true;
+                this.price += 120;
             }
-            this.price += 120;
+            addExtraCheese=true;
         }
     }
 
