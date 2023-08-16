@@ -5,13 +5,19 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private boolean takeAway=false;
+    private boolean takeAway;
+    private boolean addExtraCheese;
+    private boolean addExtraToppings;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg) this.setPrice(300);
         else this.setPrice(400);
+
+        addExtraCheese = false;
+        addExtraToppings = false;
+        takeAway = false;
     }
 
     public boolean isTakeAway() {
@@ -37,8 +43,10 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-
-            this.setBill("Extra Cheese Added: 80\n");
+            if(!addExtraCheese) {
+                this.setBill("Extra Cheese Added: 80\n");
+                addExtraCheese=true;
+            }
             this.price += 80;
         }
 
@@ -47,12 +55,18 @@ public class Pizza {
     public void addExtraToppings(){
         // your code goes here
         if(isVeg) {
-            this.setBill("Extra Topping Added: 70\n");
+            if(!addExtraToppings) {
+                this.setBill("Extra Topping Added: 70\n");
+                addExtraCheese=true;
+            }
             this.price += 70;
 
         }
         else  {
-            this.setBill("Extra Topping Added: 120\n");
+            if(!addExtraToppings) {
+                this.setBill("Extra Topping Added: 120\n");
+                addExtraCheese=true;
+            }
             this.price += 120;
         }
     }
@@ -61,9 +75,11 @@ public class Pizza {
         // your code goes here
         if(!takeAway) {
             this.setBill("Carry Bag Added: 20\n");
-            this.price += 20;
+
             this.setTakeAway(true);
+            this.price += 20;
         }
+
 
     }
 
