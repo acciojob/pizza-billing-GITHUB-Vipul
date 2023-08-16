@@ -12,29 +12,18 @@ public class Pizza {
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
-        if(isVeg) this.setPrice(300);
-        else this.setPrice(400);
+        if(isVeg) {
+            price = 300;
+            bill="Pizza Base Price : 300\n";
+        }
+        else {
+            price = 400;
+            bill="Pizza Base Price : 400\n";
+        }
 
         addExtraCheese = false;
         addExtraToppings = false;
         takeAway = false;
-    }
-
-    public boolean isTakeAway() {
-        return takeAway;
-    }
-
-    public void setTakeAway(boolean takeAway) {
-        this.takeAway = takeAway;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-        this.bill="Pizza Base Price:"+ price+"\n";;
-    }
-
-    public void setBill(String bill) {
-        this.bill +=bill;
     }
 
     public int getPrice(){
@@ -45,7 +34,7 @@ public class Pizza {
         // your code goes here
             if(!addExtraCheese) {
                 this.price += 80;
-                this.setBill("Extra Cheese Added: 80\n");
+                bill+="Extra Cheese Added: 80\n";
                 addExtraCheese=true;
             }
 
@@ -57,13 +46,13 @@ public class Pizza {
         // your code goes here
         if(!addExtraToppings) {
             if(isVeg) {
-                this.setBill("Extra Topping Added: 70\n");
+                bill+="Extra Topping Added: 70\n";
                 this.price += 70;
             }
 
            else {
 
-                this.setBill("Extra Topping Added: 120\n");
+                bill+="Extra Topping Added: 120\n";
                 this.price += 120;
             }
             addExtraCheese=true;
@@ -73,17 +62,14 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         if(!takeAway) {
-            this.setBill("Carry Bag Added: 20\n");
-
-            this.setTakeAway(true);
+            bill+="Carry Bag Added: 20\n";
+            takeAway=true;
             this.price += 20;
         }
-
-
     }
 
     public String getBill(){
         // your code goes here
-        return this.bill+ "Total Price: "+ price +"\n";
+        return bill+"Total Price: "+ price +"\n";
     }
 }
